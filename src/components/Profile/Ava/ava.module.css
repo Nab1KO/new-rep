@@ -1,0 +1,20 @@
+
+  .ava_desk {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: rgb(0, 109, 73);
+    padding: 15px;
+  }
+  .avatar img {
+    width: 100px !important;
+    border: 2px solid green;
+    border-radius: 50%;
+  }
+  .descript {
+    justify-content: flex-start;
+    width: 100%;
+  }
+  .descript span {
+    padding: 15px;
+    font-size: 20px;
+  }
