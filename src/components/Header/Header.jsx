@@ -1,15 +1,15 @@
-import React from 'react';
+import React from 'react'
+import logo from './img/logo-geomedi_1.png'
 
-import cl from './Header.module.css';
-
-
+import cl from './Header.module.css'
 
 const Header = (props) => {
-	return (
-		<header className={cl.header}>
-			<img src="./img/logo-geomedi_1.png" alt='logo' />
-		</header>	
-	)
-};
+  return (
+    <header className={cl.header}>
+      <img src="../src/Components/Header/img/logo-geomedi_1.png" alt="logo" />
+      <img src={logo} alt="asd" />
+    </header>
+  )
+}
 
-export default Header;
+export default Header
