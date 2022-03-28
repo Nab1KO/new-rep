@@ -1,7 +1,7 @@
 import react from 'react';
 import cl from './Home.module.css';
 
-const Home = () => {
+const Home = (props) => {
     return(
         <div>
             <span>მთავარი გვერდი</span>
