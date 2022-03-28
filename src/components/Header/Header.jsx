@@ -6,7 +6,7 @@ import cl from './Header.module.css'
 const Header = (props) => {
   return (
     <header className={cl.header}>
-      <img src={logo} alt="asd" />
+      <img src={logo} alt="logo" className={cl.HeaderLogo} />
     </header>
   )
 }
