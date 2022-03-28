@@ -22,7 +22,7 @@ const App = (props) => {
           <Routes>
             <Route path="/Home" element={<Home />} />
             <Route path="/News" element={<News />} />
-            <Route path="/Dialogs" element={<Dialogs />} />
+            <Route path="/Dialogs/*" element={<Dialogs />} />
             <Route path="/Profile" element={<Profile />} />
             <Route path="/profile/Students" element={<Students />} />
             <Route path="/profile/Administ" element={<Administ />} />
