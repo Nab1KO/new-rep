@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 
-const Profile = () => {
+const Profile = (props) => {
 	return (
 		<div className={cl.content}>	
 			<UsersNav />

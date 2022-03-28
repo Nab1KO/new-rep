@@ -4,7 +4,7 @@ import cl from './Header.module.css';
 
 
 
-const Header = () => {
+const Header = (props) => {
 	return (
 		<header className={cl.header}>
 			<img src="./img/logo-geomedi_1.png" alt='logo' />

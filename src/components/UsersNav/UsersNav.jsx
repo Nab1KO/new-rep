@@ -2,7 +2,7 @@ import react from 'react';
 import cl from './UsersNav.module.css';
 import { NavLink } from 'react-router-dom';
 
-const UsersNav =()=> {
+const UsersNav =(props)=> {
     return(
         <div className={cl.usersDiv}>
             <ul className={cl.prof_nav}>

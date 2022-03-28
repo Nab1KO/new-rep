@@ -1,7 +1,7 @@
 import React from "react";
 import UsersNav from "../UsersNav";
 
-const Profesors =()=> {
+const Profesors =(props)=> {
     return(
         <div>
             <UsersNav />

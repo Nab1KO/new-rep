@@ -2,7 +2,7 @@ import React from 'react';
 import  cl from './Myposts.module.css'
 import Post from './Post/Post';
 
-const Myposts = () => {
+const Myposts = (props) => {
 	return (
 			<div className={cl.posts}>
 				<div className='tcenter'>

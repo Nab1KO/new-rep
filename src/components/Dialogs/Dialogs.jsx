@@ -1,9 +1,16 @@
 import react from 'react';
 import cl from './Dialogs.module.css';
-const Dialogs = () => {
+const Dialogs = (props) => {
     return(
         <div>
-            <span>Dialogs</span>
+            <div className='dialogs-items'>
+                <div className='item'>
+
+                </div>
+                <div className='massages'>
+
+                </div>
+            </div>
         </div>
     )
 }

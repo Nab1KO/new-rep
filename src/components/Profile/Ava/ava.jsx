@@ -2,7 +2,7 @@ import React from 'react';
 import  cl from './ava.module.css'
 
 
-const Ava = () => {
+const Ava = (props) => {
 	return (
 		<div className={cl.ava_desk}>
 			<div className={cl.avatar}>

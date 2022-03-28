@@ -2,7 +2,7 @@ import React from 'react';
 import cl from'./Navbar.module.css'
 import { NavLink, Outlet } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = (props) => {
 	return (
 		<nav className={cl.nav}>
 			<div>
