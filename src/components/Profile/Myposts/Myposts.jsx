@@ -8,13 +8,16 @@ const Myposts = (props) => {
 		{id:1, post: 'hi', like: 10},
 		{id:2, post: 'how are you', like: 20}
 	]
+
+	let PostsElements = postsData
+		.map(p => <Post  massage={p.post} likeCount={p.like}/> );
+
 	return (
 			<div className={cl.posts}>
 				<div className='tcenter'>
 					my post
 				</div>
-				<Post  massage={postsData[0].post} likeCount={postsData[0].like}/>
-				<Post  massage={postsData[1].post} likeCount={postsData[1].like}/>
+				{PostsElements}
 			</div>
 	)
 };
