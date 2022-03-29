@@ -2,21 +2,5 @@
     display: grid;
     grid-template-columns: 2fr 10fr;
 }
-.dialogs_items {
-    padding: 15px;
-}
-.dialogs_items .dialog {
-    padding: 5px;
-}
-.massages {
-    padding: 15px;
-}
-
-.massage {
-    padding: 5px;
-}
 
 
-.active {
-    color: goldenrod
-}
