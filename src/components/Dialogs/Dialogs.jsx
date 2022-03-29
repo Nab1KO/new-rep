@@ -26,18 +26,15 @@ const Dialogs = (props) => {
         { id: 'dima', name: 'dima' },
         { id: 'achiko', name: 'achiko' }
     ]
-
-    let DialogElements = dialogsData
-        .map(d => <DialogItems name={d.name} id={d.id} />);
-
-
-
     let massages = [
         { id: '1', massage: 'how are you' },
         { id: '2', massage: 'im good' },
         { id: '3', massage: 'and you' },
         { id: '4', massage: 'im fine' }
     ]
+
+    let DialogElements = dialogsData
+        .map(d => <DialogItems name={d.name} id={d.id} />);
 
     let MassageElements = massages
         .map(m => <Massage massage={m.massage} />);
