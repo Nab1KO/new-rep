@@ -8,25 +8,10 @@ import Massage from './Massge/Massage';
 
 
 const Dialogs = (props) => {
-
-    let dialogsData = [
-        { id: 'luka', name: 'luka' },
-        { id: 'zaza', name: 'zaza' },
-        { id: 'dato', name: 'dato' },
-        { id: 'dima', name: 'dima' },
-        { id: 'achiko', name: 'achiko' }
-    ]
-    let massages = [
-        { id: '1', massage: 'how are you' },
-        { id: '2', massage: 'im good' },
-        { id: '3', massage: 'and you' },
-        { id: '4', massage: 'im fine' }
-    ]
-
-    let DialogElements = dialogsData
+    let DialogElements = props.dialogsData
         .map(d => <DialogItems name={d.name} id={d.id} />);
 
-    let MassageElements = massages
+    let MassageElements = props.massages
         .map(m => <Massage massage={m.massage} />);
 
 
