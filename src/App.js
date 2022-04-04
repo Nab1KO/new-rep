@@ -14,7 +14,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const App = (props) => {
   return (
-    <BrowserRouter>
       <div className="app-wraper">
         <Header />
         <Navbar />
@@ -22,15 +21,16 @@ const App = (props) => {
           <Routes>
             <Route path="/Home" element={<Home />} />
             <Route path="/News" element={<News />} />
-            <Route path="/Dialogs/*" element={<Dialogs massages={props.massages} dialogsData={props.dialogsData} />} />
-            <Route path="/Profile" element={<Profile postsData={props.postsData} />} />
+            <Route path="/Dialogs/*" element={<Dialogs 
+              state={props.state.dialogsPage}/>} />
+            <Route path="/Profile" 
+              element={<Profile state={props.state.ProfilePage} />} />
             <Route path="/profile/Students" element={<Students />} />
             <Route path="/profile/Administ" element={<Administ />} />
             <Route path="/profile/Profesors" element={<Profesors />} />
           </Routes>
         </div>
       </div>
-    </BrowserRouter>
   );
 }
 
