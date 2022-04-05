@@ -16,12 +16,22 @@ let state = {
       { id: 'achiko', name: 'achiko' }
     ],
     massages: [
-      // { id: '1', massage: <div><textarea></textarea><div><button>send</button></div></div>},
+      { id: '1', massage: 'you' },
       { id: '2', massage: 'im good' },
       { id: '3', massage: 'and you' },
       { id: '4', massage: 'im fine' }
     ]
   }
+}
+
+ export let addPost = (firsPost) => {
+  let newPost = {
+    id: 5,
+    post: firsPost,
+    like: 0
+  }
+
+  state.ProfilePage.postsData.push(newPost);
 }
 
 

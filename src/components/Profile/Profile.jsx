@@ -13,7 +13,7 @@ const Profile = (props) => {
 		<div className={cl.content}>	
 			<UsersNav />
 			<Ava />
-			<Myposts postsData={props.state.postsData}/>
+			<Myposts postsData={props.state.postsData} addPost = {props.addPost}/>
 		</div>
 	)
 };
