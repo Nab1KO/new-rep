@@ -11,6 +11,7 @@ import Students from './components/UsersNav/Students/Students';
 import Administ from './components/UsersNav/Administ/Administ';
 import Profesors from './components/UsersNav/Profesors/Profesors';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import store from './Redux/state';
 
 const App = (props) => {
   return (
@@ -22,9 +23,11 @@ const App = (props) => {
             <Route path="/Home" element={<Home />} />
             <Route path="/News" element={<News />} />
             <Route path="/Dialogs/*" element={<Dialogs 
-              state={props.state.dialogsPage}/>} />
+                                store= {props.store}/> } />
             <Route path="/Profile" 
-              element={<Profile state={props.state.ProfilePage} addPost = {props.addPost}/>} />
+              element={<Profile state={props.state.ProfilePage} 
+                                dispatch = {props.dispatch}
+                                store = {props.store} />} />
             <Route path="/profile/Students" element={<Students />} />
             <Route path="/profile/Administ" element={<Administ />} />
             <Route path="/profile/Profesors" element={<Profesors />} />
