@@ -2,6 +2,7 @@ import React from 'react';
 import  cl from './Post.module.css'
 
 const Post = (props) => {
+	console.log(props);
 	return (
 		<div className={cl.new_post}>
 			<div>

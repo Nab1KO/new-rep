@@ -1,3 +1,6 @@
+import ProfileReducer from "./Profile-reducer";
+import DialogsReducer from "./Dialog-reducer";
+import NewsReducer from "./News-reducer";
 
 const ADD_POST = 'ADD-POST';
 const CHANGETEXT = 'CHANGETEXT';
@@ -5,7 +8,8 @@ const CHANGETEXT = 'CHANGETEXT';
 const onMassageChange = 'onMassageChange';
 const onMassageSend = 'onMassageSend';
 
-
+const ON_NEWS_MASSAGE_CHANGE = 'ON_NEWS_MASSAGE_CHANGE';
+const ON_NEWS_MASSAGE_SAND = 'ON_NEWS_MASSAGE_SAND';
 
 let store = {
   _state: {
@@ -31,7 +35,17 @@ let store = {
         { id: '4', massage: 'im fine' }
       ],
       newBodyText: ''
+    },
+    newsPage: {
+        newsMassagesData: [
+          {id: '1', massage: 'sup brooo'},
+          {id: '2', massage: 'sup brooo'},
+          {id: '3', massage: 'sup brooo'},
+          {id: '4', massage: 'sup brooo'},
+        ],
+        newsMassageBody: ''
     }
+
   },
 
   getState() {
@@ -43,29 +57,12 @@ let store = {
 
 
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      let newPost = {
-        id: 5,
-        post: this._state.ProfilePage.newPostText,
-        like: 0
-      };
-      this._state.ProfilePage.postsData.push(newPost);
-      this._state.ProfilePage.newPostText = '';
-      this._rerenderEntireTree(this._state);
-    } else if (action.type === CHANGETEXT) {
-        this._state.ProfilePage.newPostText = action.newText;
-        this._rerenderEntireTree(this._state);
-    } else if (action.type === onMassageChange) {
-        this._state.dialogsPage.newBodyText = action.body;
-        this._rerenderEntireTree(this._state);
-    }else if (action.type === onMassageSend) {
-      let body = this._state.dialogsPage.newBodyText;
-          this._state.dialogsPage.newBodyText = '';
-        this._state.dialogsPage.massages.push({id: 6, massage: body});
-        this._rerenderEntireTree(this._state);
-    }
-  }
+    this._state.ProfilePage =  ProfileReducer(this._state.ProfilePage, action);
+    this._state.dialogsPage =  DialogsReducer(this._state.dialogsPage, action);
+    this._state.newsPage =  NewsReducer(this._state.newsPage, action);
 
+    this._rerenderEntireTree(this._state);
+  }
 }
 
 
@@ -73,6 +70,8 @@ export const addPostActionCreatore = () => ({type: ADD_POST});
 export const ChangeTextActionCreatore = (text) =>({type: CHANGETEXT, newText: text});
 export const newMassageChangeCreatore = (body) => ({type: onMassageChange, body: body});
 export const onMassageSendCreator = () => ({type: onMassageSend});
+export const onNewsMassageSandCreator = () => ({type: ON_NEWS_MASSAGE_SAND});
+export const onNewsMassageChangeCreator = (body) => ({type: ON_NEWS_MASSAGE_CHANGE, body: body});
 
 export default store;
 window.state = store;
