@@ -1,10 +1,8 @@
 import React from 'react';
-import Myposts from './Myposts/Myposts';
 import Ava from './Ava/ava';
 import UsersNav from '../UsersNav/UsersNav';
-import Students from '../UsersNav/Students/Students';
 import  cl from './Profile.module.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import MypostsContainer from './Myposts/MypostsContainer';
 
 
 
@@ -13,9 +11,7 @@ const Profile = (props) => {
 		<div className={cl.content}>	
 			<UsersNav />
 			<Ava />
-			<Myposts postsData={props.state.postsData} 
-						dispatch = {props.dispatch} 
-						newPostText = {props.state.newPostText} />
+			<MypostsContainer store = {props.store} />
 		</div>
 	)
 };

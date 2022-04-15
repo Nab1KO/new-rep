@@ -1,5 +1,4 @@
 import React from 'react';
-import { addPostActionCreatore, ChangeTextActionCreatore } from '../../../Redux/state';
 import  cl from './Myposts.module.css'
 import Post from './Post/Post';
 
@@ -9,13 +8,13 @@ const Myposts = (props) => {
 
 		let newPostElement = React.createRef();
 
-		let addPost = () => {
-				props.dispatch(addPostActionCreatore());
+		let onAddPost = () => {
+			props.addPost();
 		}
 
 		let onPostChange = () => {
 			let text = newPostElement.current.value;
-				props.dispatch(ChangeTextActionCreatore(text));
+			props.updateNewPostText(text);
 		}
 	return (
 			<div className={cl.posts}>
@@ -29,7 +28,7 @@ const Myposts = (props) => {
 							 value={props.newPostText} /><br />
 
 
-					<button type='submit' onClick={addPost}>send</button>
+					<button type='submit' onClick={onAddPost}>send</button>
 				</div>
 				{PostsElements}
 			</div>

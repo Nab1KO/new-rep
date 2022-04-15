@@ -1,21 +1,16 @@
-import react from 'react';
-import cl from './News.module.css';
 import NewsMassage from './newsMassage/newsMassage';
-import { newMassageChangeCreatore, onNewsMassageChangeCreator } from '../../Redux/state';
-import { onNewsMassageSandCreator } from '../../Redux/state';
 
 const News = (props) => {
-    let state = props.store.getState().newsPage;
-    let newMassageElement = state.newsMassagesData.map(n =>  <NewsMassage id = {n.id} massage = {n.massage}/>)
-    let newsMassageBody = props.store.getState().newsPage.newsMassageBody;
+    let newMassageElement = props.newsPage.newsMassagesData.map(n =>  <NewsMassage id = {n.id} massage = {n.massage}/>)
+    let newsMassageBody = props.newsPage.newsMassageBody;
 
     let onNewsMassageChange = (e) => {
         let body = e.target.value;
-        props.store.dispatch(onNewsMassageChangeCreator(body));
+        props.onNewsMassageChange(body);
     }
 
     let onNewsMassageSend = () => {
-        props.store.dispatch(onNewsMassageSandCreator());
+        props.onNewsMassageSend();
     }
     return(
         <div>

@@ -1,7 +1,24 @@
 const onMassageChange = 'onMassageChange';
 const onMassageSend = 'onMassageSend';
 
-const DialogsReducer = (state, action) => {
+let initialState = {
+    dialogsData: [
+        { id: 'luka', name: 'luka' },
+        { id: 'zaza', name: 'zaza' },
+        { id: 'dato', name: 'dato' },
+        { id: 'dima', name: 'dima' },
+        { id: 'achiko', name: 'achiko' }
+      ],
+      massages: [
+        { id: '1', massage: 'you' },
+        { id: '2', massage: 'im good' },
+        { id: '3', massage: 'and you' },
+        { id: '4', massage: 'im fine' }
+      ],
+      newBodyText: ''
+}
+
+const DialogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case onMassageChange:
             state.newBodyText = action.body;
@@ -15,4 +32,9 @@ const DialogsReducer = (state, action) => {
             return state;
     }
 }
+
+
+export const newMassageChangeCreatore = (body) => ({type: onMassageChange, body: body});
+export const onMassageSendCreator = () => ({type: onMassageSend});
+
 export default DialogsReducer;

@@ -1,18 +1,14 @@
 import react from 'react';
-import { NavLink, outlet } from 'react-router-dom';
 import cl from './Dialogs.module.css';
 import DialogItems from './DialogsItems/DialogsItems';
 import Massage from './Massge/Massage';
-import { newMassageChangeCreatore } from '../../Redux/state';
-import { onMassageSendCreator } from '../../Redux/state';
 
 
 
 
 
 const Dialogs = (props) => {
-    
-    let state = props.store.getState().dialogsPage;
+    let state = props.dialogsPage;
 
     let DialogElements = state.dialogsData
         .map(d => <DialogItems name={d.name} id={d.id} />);
@@ -26,12 +22,11 @@ const Dialogs = (props) => {
 
     let onMassageChange =  (e) => {
         let body = e.target.value;
-        props.store.dispatch(newMassageChangeCreatore(body));
+        props.onMassageChange(body);
     }   
 
     let onMassageSend = () => {
-        props.store.dispatch(onMassageSendCreator());
-        
+        props.onMassageSend()
     }
 
 
@@ -43,7 +38,7 @@ const Dialogs = (props) => {
             <div className={cl.massages}>
                 {MassageElements}
                 <div><textarea  placeholder='enter your massage'
-                                value={newBodyText}
+                                value={state.newBodyText}
                                 onChange = {onMassageChange}></textarea></div>
                 <div><button onClick={onMassageSend}>send</button></div>
             </div>

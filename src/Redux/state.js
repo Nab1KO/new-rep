@@ -2,15 +2,6 @@ import ProfileReducer from "./Profile-reducer";
 import DialogsReducer from "./Dialog-reducer";
 import NewsReducer from "./News-reducer";
 
-const ADD_POST = 'ADD-POST';
-const CHANGETEXT = 'CHANGETEXT';
-
-const onMassageChange = 'onMassageChange';
-const onMassageSend = 'onMassageSend';
-
-const ON_NEWS_MASSAGE_CHANGE = 'ON_NEWS_MASSAGE_CHANGE';
-const ON_NEWS_MASSAGE_SAND = 'ON_NEWS_MASSAGE_SAND';
-
 let store = {
   _state: {
     ProfilePage: {
@@ -51,8 +42,8 @@ let store = {
   getState() {
     return this._state
   },
-  Subscribe(observer) {
-    this._rerenderEntireTree = observer;
+  subscribe(observer) {
+    this.Subscribe = observer;
   },
 
 
@@ -61,18 +52,9 @@ let store = {
     this._state.dialogsPage =  DialogsReducer(this._state.dialogsPage, action);
     this._state.newsPage =  NewsReducer(this._state.newsPage, action);
 
-    this._rerenderEntireTree(this._state);
+    this.subscribe(this._state);
   }
 }
-
-
-export const addPostActionCreatore = () => ({type: ADD_POST});
-export const ChangeTextActionCreatore = (text) =>({type: CHANGETEXT, newText: text});
-export const newMassageChangeCreatore = (body) => ({type: onMassageChange, body: body});
-export const onMassageSendCreator = () => ({type: onMassageSend});
-export const onNewsMassageSandCreator = () => ({type: ON_NEWS_MASSAGE_SAND});
-export const onNewsMassageChangeCreator = (body) => ({type: ON_NEWS_MASSAGE_CHANGE, body: body});
-
 export default store;
 window.state = store;
 
