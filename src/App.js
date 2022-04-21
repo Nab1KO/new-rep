@@ -10,6 +10,7 @@ import Profesors from './components/UsersNav/Profesors/Profesors';
 import { Routes, Route } from 'react-router-dom';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import NewsContainer from './components/News/NewsContainer';
+import UsersContainer from './components/USers/UsersContainer';
 
 const App = (props) => {
   return (
@@ -18,8 +19,9 @@ const App = (props) => {
         <Navbar />
         <div className='app-wraper-content'>
           <Routes>
+            <Route path="/Users" element={<UsersContainer />} />
             <Route path="/Home" element={<Home />} />
-            <Route path="/News" element={<NewsContainer store = {props.store}/>} />
+            <Route path="/News" element={<NewsContainer store= {props.store}/>} />
             <Route path="/Dialogs/*" element={<DialogsContainer 
                                 store= {props.store}/> } />
             <Route path="/Profile" 

@@ -1,8 +1,8 @@
 import NewsMassage from './newsMassage/newsMassage';
 
 const News = (props) => {
-    let newMassageElement = props.newsPage.newsMassagesData.map(n =>  <NewsMassage id = {n.id} massage = {n.massage}/>)
-    let newsMassageBody = props.newsPage.newsMassageBody;
+    let newMassageElement = props.newsMassagesData.map(n =>  <NewsMassage id = {n.id} massage = {n.massage}/>)
+    let newsMassageBody = props.newsMassageBody;
 
     let onNewsMassageChange = (e) => {
         let body = e.target.value;
@@ -12,6 +12,7 @@ const News = (props) => {
     let onNewsMassageSend = () => {
         props.onNewsMassageSend();
     }
+    
     return(
         <div>
            {newMassageElement}

@@ -1,4 +1,3 @@
-import react from 'react';
 import cl from './UsersNav.module.css';
 import { NavLink } from 'react-router-dom';
 

@@ -1,4 +1,3 @@
-import react from 'react';
 import cl from './Dialogs.module.css';
 import DialogItems from './DialogsItems/DialogsItems';
 import Massage from './Massge/Massage';
@@ -8,17 +7,12 @@ import Massage from './Massge/Massage';
 
 
 const Dialogs = (props) => {
-    let state = props.dialogsPage;
 
-    let DialogElements = state.dialogsData
+    let DialogElements = props.dialogsPage.dialogsData
         .map(d => <DialogItems name={d.name} id={d.id} />);
 
-    let MassageElements = state.massages
+    let MassageElements = props.dialogsPage.massages
         .map(m => <Massage massage={m.massage} />);
-
-
-    let newBodyText = state.newBodyText;
-
 
     let onMassageChange =  (e) => {
         let body = e.target.value;
@@ -38,7 +32,7 @@ const Dialogs = (props) => {
             <div className={cl.massages}>
                 {MassageElements}
                 <div><textarea  placeholder='enter your massage'
-                                value={state.newBodyText}
+                                value={props.newBodyText}
                                 onChange = {onMassageChange}></textarea></div>
                 <div><button onClick={onMassageSend}>send</button></div>
             </div>

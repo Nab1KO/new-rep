@@ -9,7 +9,7 @@ let store = {
         { id: 1, post: 'hi', like: 10 },
         { id: 2, post: 'how are you', like: 20 }
       ],
-      newPostText: "luka"
+      newPostText: ''
     },
     dialogsPage: {
       dialogsData: [
@@ -55,24 +55,9 @@ let store = {
     this.subscribe(this._state);
   }
 }
+
 export default store;
-window.state = store;
 
 
-
-  // addPost() {
-  //   let newPost = {
-  //     id: 5,
-  //     post: this._state.ProfilePage.newPostText,
-  //     like: 0
-  //   }
-
-  //   this._state.ProfilePage.postsData.push(newPost);
-  //   this._state.ProfilePage.newPostText = '';
-  //   this._rerenderEntireTree(this._state);
-  // },
-
-  // ChangeText(newText) {
-  //   this._state.ProfilePage.newPostText = newText;
-  //   this._rerenderEntireTree(this._state);
-  // },
+window.state = store.getState();
+console.log(state);

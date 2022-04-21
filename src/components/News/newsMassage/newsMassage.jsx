@@ -1,5 +1,3 @@
-import react from 'react';
-import store from '../../../Redux/state';
 import cl from './NewsMassage.module.css';
 
 const NewsMassage = (props) => {
