@@ -2,26 +2,35 @@ import React from "react";
 import cl from './Users.module.css';
 
 const Users = (props) => {
-    // if(props.users.length === 0) {
-    //         props.SETUSERS( users [
-    //             { id: 1, photoUrl: 'https://thumbs.dreamstime.com/b/happy-smiling-geek-hipster-beard-man-cool-avatar-geek-man-avatar-104871313.jpg', 
-    //                     firstName: 'luka', folowed:false, status: 'hello fellas wasssup', location: {city: 'Tbilisi', country: 'Georgia'}},
-    //             { id: 2, photoUrl: 'https://thumbs.dreamstime.com/b/happy-smiling-geek-hipster-beard-man-cool-avatar-geek-man-avatar-104871313.jpg', 
-    //                     firstName: 'zaza', folowed:true, status: 'hello fellas im zaza', location: {city: 'Tbilisi', country: 'Georgia'}},
-    //             { id: 3, photoUrl: 'https://thumbs.dreamstime.com/b/happy-smiling-geek-hipster-beard-man-cool-avatar-geek-man-avatar-104871313.jpg', 
-    //                     firstName: 'dato', folowed:true, status: 'wasssup zaza ?', location: {city: 'Tbilisi', country: 'Georgia'}},
-    //             { id: 4, photoUrl: 'https://thumbs.dreamstime.com/b/happy-smiling-geek-hipster-beard-man-cool-avatar-geek-man-avatar-104871313.jpg', 
-    //                     firstName: 'dima', folowed:false, status: 'im actualy doing something', location: {city: 'Tbilisi', country: 'Georgia'}},
-    //             { id: 5, photoUrl: 'https://thumbs.dreamstime.com/b/happy-smiling-geek-hipster-beard-man-cool-avatar-geek-man-avatar-104871313.jpg', 
-    //                     firstName: 'achiko', folowed:true, status: 'i know how to drive a car', location: {city: 'Tbilisi', country: 'Georgia'}}
-    //             ]
-    //         )
-    //  }
+    if (props.users.length === 0) {
+        props.setUsers([
+            {
+                id: 1, photoUrl: 'https://thumbs.dreamstime.com/b/happy-smiling-geek-hipster-beard-man-cool-avatar-geek-man-avatar-104871313.jpg',
+                firstName: 'luka', folowed: false, status: 'hello fellas,, wasssup', location: { city: 'Tbilisi', country: 'Georgia' }
+            },
+            {
+                id: 2, photoUrl: 'https://thumbs.dreamstime.com/b/happy-smiling-geek-hipster-beard-man-cool-avatar-geek-man-avatar-104871313.jpg',
+                firstName: 'zaza', folowed: true, status: 'hello fellas im zaza', location: { city: 'Tbilisi', country: 'Georgia' }
+            },
+            {
+                id: 3, photoUrl: 'https://thumbs.dreamstime.com/b/happy-smiling-geek-hipster-beard-man-cool-avatar-geek-man-avatar-104871313.jpg',
+                firstName: 'dato', folowed: true, status: 'wasssup zaza ?', location: { city: 'Tbilisi', country: 'Georgia' }
+            },
+            {
+                id: 4, photoUrl: 'https://thumbs.dreamstime.com/b/happy-smiling-geek-hipster-beard-man-cool-avatar-geek-man-avatar-104871313.jpg',
+                firstName: 'dima', folowed: false, status: 'im actualy doing something', location: { city: 'Tbilisi', country: 'Georgia' }
+            },
+            {
+                id: 5, photoUrl: 'https://thumbs.dreamstime.com/b/happy-smiling-geek-hipster-beard-man-cool-avatar-geek-man-avatar-104871313.jpg',
+                firstName: 'achiko', folowed: true, status: 'i know how to drive a car', location: { city: 'Tbilisi', country: 'Georgia' }
+            }
+        ])
+    }
      
     return (
         <div>
             {
-                props.users.map(u => <div key={u.id}>
+                props.users.map((u, idx) => <div key={idx}>
                     <span>
                         <div>
                             <img src={u.photoUrl} alt="profilePhoto" className={cl.avaImg} />
