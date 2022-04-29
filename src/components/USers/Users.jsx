@@ -1,60 +1,45 @@
+import axios from "axios";
 import React from "react";
 import cl from './Users.module.css';
+import userPhoto from '../../assats/img/userPhoto.png';
 
-const Users = (props) => {
-    if (props.users.length === 0) {
-        props.setUsers([
-            {
-                id: 1, photoUrl: 'https://thumbs.dreamstime.com/b/happy-smiling-geek-hipster-beard-man-cool-avatar-geek-man-avatar-104871313.jpg',
-                firstName: 'luka', folowed: false, status: 'hello fellas,, wasssup', location: { city: 'Tbilisi', country: 'Georgia' }
-            },
-            {
-                id: 2, photoUrl: 'https://thumbs.dreamstime.com/b/happy-smiling-geek-hipster-beard-man-cool-avatar-geek-man-avatar-104871313.jpg',
-                firstName: 'zaza', folowed: true, status: 'hello fellas im zaza', location: { city: 'Tbilisi', country: 'Georgia' }
-            },
-            {
-                id: 3, photoUrl: 'https://thumbs.dreamstime.com/b/happy-smiling-geek-hipster-beard-man-cool-avatar-geek-man-avatar-104871313.jpg',
-                firstName: 'dato', folowed: true, status: 'wasssup zaza ?', location: { city: 'Tbilisi', country: 'Georgia' }
-            },
-            {
-                id: 4, photoUrl: 'https://thumbs.dreamstime.com/b/happy-smiling-geek-hipster-beard-man-cool-avatar-geek-man-avatar-104871313.jpg',
-                firstName: 'dima', folowed: false, status: 'im actualy doing something', location: { city: 'Tbilisi', country: 'Georgia' }
-            },
-            {
-                id: 5, photoUrl: 'https://thumbs.dreamstime.com/b/happy-smiling-geek-hipster-beard-man-cool-avatar-geek-man-avatar-104871313.jpg',
-                firstName: 'achiko', folowed: true, status: 'i know how to drive a car', location: { city: 'Tbilisi', country: 'Georgia' }
-            }
-        ])
+class Users extends React.Component {
+
+ componentDidMount(){
+    axios.get("https://social-network.samuraijs.com/api/1.0/users").then(Response => {
+        this.props.setUsers(Response.data.items);
+    });
+}
+    render() {
+        return (
+            <div>
+                {
+                    this.props.users.map((u, idx) => <div key={idx}>
+                        <span>
+                            <div>
+                                <img src={ u.photos.small != null ? u.photos.small : userPhoto } alt="profilePhoto" className={cl.avaImg} />
+                            </div>
+                            <div>
+                               { u.folowed ? 
+                               <button onClick={ () => {this.props.UNFOLLOW(u.id)} }>UNFOLLOW</button> : 
+                               <button onClick={ () => {this.props.FOLLOW(u.id)} }>FOLLOW</button> }
+                            </div>
+                        </span>
+                        <span>
+                            <span>
+                                <div>{u.name}</div>
+                                <div>{u.status}</div>
+                            </span>
+                            <span>
+                                <div>{'u.location.country'}</div>
+                                <div>{'u.location.city'}</div>
+                            </span>
+                        </span>
+                    </div>)
+                }
+            </div>
+        )
     }
-     
-    return (
-        <div>
-            {
-                props.users.map((u, idx) => <div key={idx}>
-                    <span>
-                        <div>
-                            <img src={u.photoUrl} alt="profilePhoto" className={cl.avaImg} />
-                        </div>
-                        <div>
-                           { u.folowed ? 
-                           <button onClick={ () => {props.UNFOLLOW(u.id)} }>UNFOLLOW</button> : 
-                           <button onClick={ () => {props.FOLLOW(u.id)} }>FOLLOW</button> }
-                        </div>
-                    </span>
-                    <span>
-                        <span>
-                            <div>{u.firstName}</div>
-                            <div>{u.status}</div>
-                        </span>
-                        <span>
-                            <div>{u.location.country}</div>
-                            <div>{u.location.city}</div>
-                        </span>
-                    </span>
-                </div>)
-            }
-        </div>
-    )
 }
 
-export default Users;
+export default Users; 

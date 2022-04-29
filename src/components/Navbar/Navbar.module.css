@@ -4,13 +4,15 @@
 	background-color: lightsteelblue;
 	font-size: 20px;
 	height: 100vh;
+	position: fixed;
+	margin-top: 100px;
+	width: 253px;
   }
   .nav > div {
-	  /* text-align: center; */
 	  padding: 10px;
   }
   .navDiv {
-	  margin-top: 30px;
+	  /* margin-top: 30px; */
   }
 
   .item  {
