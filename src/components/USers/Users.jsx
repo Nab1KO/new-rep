@@ -6,13 +6,39 @@ import userPhoto from '../../assats/img/userPhoto.png';
 class Users extends React.Component {
 
  componentDidMount(){
-    axios.get("https://social-network.samuraijs.com/api/1.0/users").then(Response => {
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(Response => {
+        this.props.setUsers(Response.data.items);
+        // this.props.setToatalUsersCount(Response.data.totalCount);
+    });
+}
+
+onPageChanged = (pageNumber) => {
+    this.props.setCurrentPage(pageNumber);
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`).then(Response => {
         this.props.setUsers(Response.data.items);
     });
 }
     render() {
+
+        let PagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
+
+        let pages = [];
+        for(let i = 1; i <= PagesCount; i++){
+            pages.push(i);
+        }
+
+
         return (
             <div className={cl.usersContainer}>
+                <div>
+                    {pages.map(p => {
+                    return(
+
+                        <span className={this.props.currentPage === p && cl.activePage} onClick={() => { this.onPageChanged(p) }}>{p}</span>
+                    
+                    )})}
+                    
+                </div>
                 {
                     this.props.users.map((u, idx) => <div key={idx}>
                         <span>

@@ -2,9 +2,15 @@
     width: 150px;
 }
 
-
+/* 
 .usersContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+} */
+
+
+.activePage {
+    font-weight: 800;
+    font-size: bold;
 }
